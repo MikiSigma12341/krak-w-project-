@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+    <button id="clickIt">Click here</button>
+    <div id="div-id-1">Text strony</div>
+    <p id="demo"></p>
+    <div>
+        Liczba 1: <input type="text" id="liczba1"><br><br>
+        Liczba 2: <input type="text" id="liczba2"><br><br>
+        <button onclick="dodaj()">DODAJ</button>
+        <button id="dodaj">DODAJ EventListener</button>
+        <p id="wynik"></p>
+    </div>
+
+    <script>
+        // Prosty alert, prompt i console.log
+        // alert("Hello world!");
+        // prompt("Jak masz na imię?");
+        // console.log("I am console in your browser, hello!");
+
+        // DOM Manipulacja
+        document.write("I am a function writing in DOM");
+        document.write("<h4>I am another DOM output</h4>");
+
+        // Funkcja do zapisu w DOM
+        function myWrite(myAttribute) {
+            document.write(myAttribute);
+        }
+        myWrite("<h1 class='element-h1'>Hello</h1>");
+        myWrite("<br>");
+        myWrite("<p>World!</p>");
+        myWrite("<br>");
+
+        // Praca z elementami DOM
+        let myElement = document.getElementById("div-id-1");
+        document.getElementById("div-id-1").innerHTML += "<div style='color:blue;'>It is added via innerHTML</div>";
+        document.getElementById("div-id-1").style.color = "red";
+        myElement.style.fontSize = "30px";
+
+        // Zmienne i typy danych
+        let num = 1.45;
+        let str = "string";
+        let bool = true;
+        console.log(num, str, bool);
+
+        // Operacje na liczbach
+        let firstNum = 17;
+        let secondNum = 24;
+        firstNum += 100;
+        console.log(firstNum);
+        firstNum++;
+        console.log(firstNum);
+        firstNum--;
+        console.log(firstNum);
+
+        document.write("Wynik dodawania: " + (firstNum + secondNum) + "<br>");
+        document.write("Wynik reszty z dzielenia: " + (firstNum % secondNum) + "<br>");
+        document.write("Wynik mnożenia: " + (firstNum * secondNum) + "<br>");
+        document.write("Wynik dzielenia: " + (firstNum / secondNum) + "<br>");
+
+        // Funkcja dodawania
+        function summ(a, b) {
+            return a + b;
+        }
+        document.write("Wynik funkcji summ: " + summ(firstNum, secondNum) + "<br>");
+
+        // Obsługa kliknięcia (Event Listener)
+        function myFunction() {
+            document.getElementById("demo").innerHTML += "We clicked!<br>";
+        }
+        document.getElementById("clickIt").addEventListener("click", myFunction);
+
+        // Funkcja dodawania wartości z inputów
+        function dodaj() {
+            let liczba1 = parseInt(document.getElementById("liczba1").value);
+            let liczba2 = parseInt(document.getElementById("liczba2").value);
+            let wynikSum = liczba1 + liczba2;
+            document.getElementById("wynik").innerHTML = "Wynik: " + wynikSum;
+        }
+
+        // Funkcja z EventListenerem
+        function dodajEventListener() {
+            let liczba1 = parseInt(document.getElementById("liczba1").value);
+            let liczba2 = parseInt(document.getElementById("liczba2").value);
+            let wynikSum = liczba1 + liczba2;
+            document.getElementById("wynik").innerHTML = "Wynik: " + wynikSum;
+        }
+        document.getElementById("dodaj").addEventListener("click", dodajEventListener);
+    </script>
+</body>
+</html>
